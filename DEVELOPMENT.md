@@ -80,6 +80,14 @@ MONGO_REPLICA_SET_NAME=dbrs
 ### ***Conjunto de replicas MongoDB local (cluster)***
 La base de datos local se configura como un cluster de 3 instancias MongoDB. Una instancia adicional es la que se encarga de esta configuracion, la cual muere despues de eso.
 
+### ***MongoDB Atlas***
+En caso de querer conectar con una base de datos en la nube, una buena opcion es [MongoDB Atlas](https://cloud.mongodb.com/). Pasos a seguir:
+1. Crear una cuenta
+2. Crear base de datos
+3. Configurar el acceso a la red en el apartado `Security -> Network Access` 
+4. Configurar los usuarios en el apartado `Security -> Database Access`
+5. En la aplicacion de Python cambiar la cadena de conexion
+
 ### ***Variables de entorno***
 En esta carpeta debe existir un archivo `.env` con la siguiente estructura:
 ```
