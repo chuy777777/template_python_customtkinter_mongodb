@@ -58,6 +58,14 @@ Comandos entorno virtual:
 Una vez activado el entorno virtual, la aplicacion se ejecuta con el siguiente comando:
 - `python3.8 app.py`
 
+### ***Variables de entorno***
+En esta carpeta debe existir un archivo `.env` con la siguiente estructura:
+```
+MONGO_INITDB_DATABASE=db
+MONGO_REPLICA_SET_NAME=dbrs
+```
+> Debe coincidir con las variables del archivo `.env` que se encuentra en `project/db_docker`.
+
 ***
 ### `project/app_docker`
 ### ***Archivo de dependencias de la aplicacion***
@@ -67,14 +75,6 @@ Crear archivo de dependencias del entorno virtual:
 > Este archivo es necesario a la hora de construir la imagen Docker de la aplicacion.
 
 - `pip freeze > ../app_docker/requirements.txt`
-
-### ***Variables de entorno***
-En esta carpeta debe existir un archivo `.env` con la siguiente estructura:
-```
-MONGO_INITDB_DATABASE=db
-MONGO_REPLICA_SET_NAME=dbrs
-```
-> Debe coincidir con las variables del archivo `.env` que se encuentra en `project/db_docker`.
 
 ### `project/db_docker`
 ### ***Conjunto de replicas MongoDB local (cluster)***
