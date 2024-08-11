@@ -5,10 +5,7 @@ import customtkinter  as ctk
 import tkinter as tk
 from pymongo import timeout
 from bson import ObjectId
-from decouple import Config, RepositoryEnv
-
-DOTENV_FILE = './.env'
-env_config = Config(RepositoryEnv(DOTENV_FILE))
+from decouple import config
 
 from components.create_frame import CreateFrame
 from components.create_scrollable_frame import CreateScrollableFrame
@@ -63,8 +60,8 @@ class FrameApplication(CreateScrollableFrame):
             if self.client is None:
                 username=self.var_username.get()
                 password=self.var_password.get()
-                database_name=env_config.get("MONGO_INITDB_DATABASE")
-                replica_set_name=env_config.get("MONGO_REPLICA_SET_NAME")
+                database_name=config("MONGO_INITDB_DATABASE")
+                replica_set_name=config("MONGO_REPLICA_SET_NAME")
                 # print("username: {}\npassword: {}\ndatabase_name: {}\nreplica_set_name: {}\n".format(username, password, database_name, replica_set_name))
                 if tk.messagebox.askyesnocancel(title="Conectar", message="¿Esta seguro de conectar con la base de datos?", parent=self):
                     self.client,connection_message=ConnectionDB.create_local_connection_db(username=username, password=password, database_name=database_name, replica_set_name=replica_set_name)

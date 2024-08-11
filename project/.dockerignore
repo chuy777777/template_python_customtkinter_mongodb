@@ -1,4 +1,6 @@
 __pycache__/
+app/.env
+app/app_env
 db_docker/
 app.sh
 

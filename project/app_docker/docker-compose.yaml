@@ -7,7 +7,7 @@ services:
       context: ../
     image: template_python_customtkinter_mongodb:v1
     container_name: template_python_customtkinter_mongodb
-    # env_file: ./../app/.env
+    env_file: ./../app/.env
     environment:
       - PYTHONUNBUFFERED=1
       - DISPLAY=$DISPLAY
