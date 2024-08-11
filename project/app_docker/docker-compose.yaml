@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  app:
+    build: 
+      dockerfile: app_docker/Dockerfile
+      context: ../
+    image: template_python_customtkinter_mongodb:v1
+    container_name: template_python_customtkinter_mongodb
+    # env_file: ./../app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DISPLAY=$DISPLAY
+    privileged: true
+    volumes:
+      - volume_template_python_customtkinter_mongodb:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro    # UI
+      # - /dev:/dev:ro                        # USB Devices
+    # ports:
+    #   - 5000:5000
+    networks:
+      - network_template_python_customtkinter_mongodb
+
+volumes:
+  volume_template_python_customtkinter_mongodb:
+    name: volume_template_python_customtkinter_mongodb
+    external: false
+
+networks:
+  network_template_python_customtkinter_mongodb:
+    name: network_template_python_customtkinter_mongodb
+    external: true

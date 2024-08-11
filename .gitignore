@@ -1,0 +1,5 @@
+__pycache__/
+project/app/app_env
+project/db_docker/mongo_replication.key
+.env
+
